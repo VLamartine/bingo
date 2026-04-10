@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo</title>
+    <script type="module" src="bingo.js"></script>
+    <link rel="stylesheet" href="bingo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header-container">
+        <h1 class="page-title">It's a bingo!</h1>
+    </header>
+    <div class="content">
+
+        <div class="actions">
+            <button id="start-draw" class="start-draw-btn">Começar o sorteio</button>
+            <button id="restart-draw" class="reset-draw-btn none">Reiniciar o sorteio</button>
+        </div>
+        <main id="main-content" class="w-full none">
+            <div class="draw-layout">
+                <div class="current-draw-panel">
+                    <h3 class="panel-subtitle">O próximo número é</h3>
+
+                    <button class="draw-number-btn" id="draw-number">Sortear número</button>
+
+                    <h1 id="number" class="current-number">--</h1>
+                    <img id="number-image" class="pokemon-sprite" alt="Esperando o sorteio..." src="">
+                </div>
+
+                <div class="board-panel">
+                    <h3 class="panel-subtitle">Números sorteados:</h3>
+                    <div class="table-wrapper">
+                        <table>
+                            <tbody id="board">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <button class="reveal-prize-btn" id="reveal-prize">Revelar prêmio</button>
+            <div id="prize-content" class="prize-reveal-container none">
+                <h2 class="prize-hype-text">Você ganhou um incrível, um maravilhoso, um sensacional:</h2>
+                <h1 id="prize" class="prize-name">Inserir o prêmio aqui</h1>
+                <p id="no-more-prizes" class="no-more-prizes-text none">Esse foi o último "prêmio", se quiserem jogar de novo, é apenas pela amizade entre vocês.</p>
+            </div>
+        </main>
+        <div id="welcome-screen" class="welcome-container">
+            <h2 class="welcome-title">Você já se arrependeu das suas decisões hoje?</h2>
+            <p class="welcome-text">O bingo mais imparcialmente parcial que você já participou, apenas hoje</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,360 @@
+/* =========================================
+   1. VARIÁVEIS E TEMAS
+   ========================================= */
+:root {
+    --bg-color: #F8F9FA;
+    --panel-bg: #FFFFFF;
+    --text-main: #212529;
+    --accent-color: #D32F2F;
+}
+
+[data-theme="dark"] {
+    --bg-color: #0F172A;
+    --panel-bg: #1E293B;
+    --text-main: #F8FAFC;
+    --accent-color: #10B981;
+}
+
+/* =========================================
+   2. BASE E RESETS (Travando na Tela Única)
+   ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box; /* Garante que paddings não estiquem a tela */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Trava a altura em 100% da tela */
+    overflow: hidden; /* Remove as barras de rolagem */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem 2rem; /* Respiro mínimo nas bordas da tela */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ocupa o restante da tela */
+}
+
+.none {
+    display: none !important;
+}
+
+/* =========================================
+   3. CABEÇALHO E AÇÕES SUPERIORES
+   ========================================= */
+.header-container {
+    text-align: center;
+    margin-bottom: 0.5rem; /* Reduzido */
+}
+
+.page-title {
+    font-size: 2.5rem; /* Reduzido de 4rem */
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+    background: linear-gradient(45deg, #F59E0B, #FDE047);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.3));
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.actions {
+    display: flex;
+    justify-content: center; /* Centraliza o grupo inteiro */
+    align-items: center;
+    gap: 1rem;               /* Define a distância EXATA entre eles (16px) */
+    margin: 1.5rem auto;
+    width: 100%;
+}
+
+.actions button {
+    margin: 0 !important;
+}
+
+/* =========================================
+   4. LAYOUT PRINCIPAL DO BINGO
+   ========================================= */
+.draw-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch; /* Estica os painéis para ficarem da mesma altura */
+    gap: 1.5rem; /* Reduzido */
+    width: 100%;
+    flex-grow: 1; /* Faz o layout principal empurrar o resto */
+    min-height: 0; /* Previne estourar o container flex */
+}
+
+.current-draw-panel,
+.board-panel {
+    background-color: var(--panel-bg);
+    border-radius: 16px;
+    padding: 1.5rem; /* Reduzido de 2.5rem */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.current-draw-panel {
+    flex: 1;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between; /* Distribui bem o botão, numero e foto */
+}
+
+.board-panel {
+    flex: 2;
+    justify-content: flex-start;
+}
+
+.panel-subtitle {
+    color: #94A3B8;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 1rem 0; /* Reduzido */
+}
+
+/* =========================================
+   5. NÚMERO E POKÉMON
+   ========================================= */
+.current-number {
+    font-size: 6rem; /* Reduzido de 8rem */
+    font-weight: 900;
+    color: var(--accent-color);
+    margin: 0;
+    line-height: 1;
+    text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.pokemon-sprite {
+    max-width: 180px; /* Reduzido */
+    max-height: 140px; /* Garante que não empurre a tela para baixo */
+    object-fit: contain;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.4));
+}
+
+.pokemon-sprite[src=""] {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* =========================================
+   6. TABELA DO BINGO
+   ========================================= */
+.table-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center; /* Centraliza a tabela no painel */
+}
+
+.table-wrapper table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 6px; /* Reduzido de 10px */
+}
+
+.table-wrapper td {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #64748B;
+    text-align: center;
+    padding: 0.75rem 0.25rem; /* Reduzido de 1.25rem */
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1.25rem; /* Reduzido de 1.5rem */
+    transition: all 0.2s ease;
+}
+
+.table-wrapper td.drawn-cell {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.1);
+    font-weight: 800;
+}
+
+/* =========================================
+   7. BOTÕES E CONTROLES
+   ========================================= */
+.draw-number-btn,
+.reveal-prize-btn,
+.start-draw-btn {
+    font-size: 1rem; /* Fontes de botões um pouco menores */
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0.75rem 2rem; /* Menos padding */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #FFFFFF;
+    transition: all 0.2s ease-in-out;
+    display: block;
+    margin: 0 auto;
+}
+
+.draw-number-btn {
+    background-color: #10B981;
+    font-size: 1.15rem;
+}
+.draw-number-btn:hover { background-color: #059669; transform: translateY(-2px); }
+.draw-number-btn:active { transform: translateY(1px); }
+.draw-number-btn:disabled { background-color: #334155; color: #94A3B8; cursor: not-allowed; }
+
+.reveal-prize-btn {
+    background-color: #F59E0B;
+    margin-top: 1rem; /* Adicionado para separar do grid principal */
+}
+.reveal-prize-btn:hover { background-color: #D97706; transform: translateY(-2px); }
+.reveal-prize-btn:active { transform: translateY(1px); }
+
+.start-draw-btn { background-color: #3B82F6; }
+.start-draw-btn:hover { background-color: #2563EB; transform: translateY(-2px); }
+.start-draw-btn:active { transform: translateY(1px); }
+
+.reset-draw-btn {
+    background-color: transparent;
+    color: #EF4444;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.6rem 1.5rem;
+    border: 2px solid #EF4444;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.reset-draw-btn:hover { background-color: #EF4444; color: #FFFFFF; transform: translateY(-2px); }
+.reset-draw-btn:active { transform: translateY(1px); }
+
+/* =========================================
+   8. SESSÃO DO PRÊMIO
+   ========================================= */
+.prize-reveal-container {
+    text-align: center;
+    padding: 1.5rem 2rem; /* Altamente reduzido */
+    background-color: var(--panel-bg);
+    border-radius: 16px;
+    border: 2px solid #F59E0B;
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.15);
+    max-width: 900px;
+    margin: 1rem auto 0 auto; /* Menos margem superior */
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.prize-hype-text {
+    color: #94A3B8;
+    font-size: 1.1rem; /* Reduzido */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.5rem 0;
+}
+
+.prize-name {
+    font-size: 3.5rem; /* Reduzido de 5rem */
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.1;
+    background: linear-gradient(to bottom, #FDE047, #F59E0B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 4px 10px rgba(245, 158, 11, 0.4));
+    animation: neonPulse 2s infinite alternate;
+}
+
+/* =========================================
+   9. ANIMAÇÕES (KEYFRAMES)
+   ========================================= */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.9) translateY(10px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes neonPulse {
+    0% { filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.3)); }
+    100% { filter: drop-shadow(0 6px 15px rgba(245, 158, 11, 0.6)); }
+}
+
+/* =========================================
+   TELA DE BOAS-VINDAS (ESTADO INICIAL)
+   ========================================= */
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    /* Mesmo estilo visual dos painéis do jogo */
+    background-color: var(--panel-bg);
+    border-radius: 24px;
+    padding: 4rem 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    width: 100%;
+    max-width: 700px;
+    margin: auto; /* Centraliza vertical e horizontalmente */
+
+    /* Animação suave ao abrir a página */
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.welcome-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+    margin: 0 0 1rem 0;
+}
+
+.welcome-text {
+    color: #94A3B8;
+    font-size: 1.25rem;
+    margin: 0 0 3rem 0;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.no-more-prizes-text {
+    color: #94A3B8; /* Cinza azulado (slate-400) para não ofuscar o prêmio */
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+
+    /* Espaçamento e linha divisória */
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Animação suave de surgimento */
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
