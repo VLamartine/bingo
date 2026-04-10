@@ -23,6 +23,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -46,6 +49,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
     "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "D:/Projects/Bingo",
@@ -80,7 +84,7 @@
       <workItem from="1775567120635" duration="9310000" />
       <workItem from="1775669918736" duration="6184000" />
       <workItem from="1775757001904" duration="2912000" />
-      <workItem from="1775836509735" duration="10406000" />
+      <workItem from="1775836509735" duration="10950000" />
     </task>
     <servers />
   </component>
