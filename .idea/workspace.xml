@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="616770c4-077c-4fed-92f2-1e7760d1c2c9" name="Changes" comment="" />
+    <list default="true" id="616770c4-077c-4fed-92f2-1e7760d1c2c9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prizes.js" beforeDir="false" afterPath="$PROJECT_DIR$/prizes.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +49,7 @@
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
@@ -84,7 +88,8 @@
       <workItem from="1775567120635" duration="9310000" />
       <workItem from="1775669918736" duration="6184000" />
       <workItem from="1775757001904" duration="2912000" />
-      <workItem from="1775836509735" duration="10950000" />
+      <workItem from="1775836509735" duration="13786000" />
+      <workItem from="1776791331785" duration="46000" />
     </task>
     <servers />
   </component>
